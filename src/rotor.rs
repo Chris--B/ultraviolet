@@ -50,6 +50,8 @@
 //! compute than the `matrix * vec` product. So, rotors are excellent for *building* and *interpolating*
 //! rotations, but it may be preferable to convert them into matrices before applying them to
 //! vectors/points, if the same rotation will be applied to many vectors.
+#![allow(clippy::suspicious_arithmetic_impl)]
+#![allow(clippy::suspicious_op_assign_impl)]
 
 use crate::*;
 use crate::util::*;

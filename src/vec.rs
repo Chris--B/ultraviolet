@@ -366,6 +366,22 @@ macro_rules! vec2s {
             }
         }
 
+        impl Add<$t> for $n {
+            type Output = Self;
+            #[inline]
+            fn add(self, rhs: $t) -> $n {
+                $n::new(self.x + rhs, self.y + rhs)
+            }
+        }
+
+        impl Add<$n> for $t {
+            type Output = $n;
+            #[inline]
+            fn add(self, rhs: $n) -> $n {
+                $n::new(self + rhs.x, self + rhs.y)
+            }
+        }
+
         impl AddAssign for $n {
             #[inline]
             fn add_assign(&mut self, rhs: $n) {
@@ -979,6 +995,22 @@ macro_rules! vec3s {
             #[inline]
             fn add(self, rhs: $n) -> Self {
                 $n::new(self.x + rhs.x, self.y + rhs.y, self.z + rhs.z)
+            }
+        }
+
+        impl Add<$t> for $n {
+            type Output = Self;
+            #[inline]
+            fn add(self, rhs: $t) -> $n {
+                $n::new(self.x + rhs, self.y + rhs, self.z + rhs)
+            }
+        }
+
+        impl Add<$n> for $t {
+            type Output = $n;
+            #[inline]
+            fn add(self, rhs: $n) -> $n {
+                $n::new(self + rhs.x, self + rhs.y, self + rhs.z)
             }
         }
 
